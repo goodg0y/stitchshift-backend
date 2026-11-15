@@ -1,0 +1,73 @@
+# Uji endpoint dengan ekstensi "REST Client" di VS Code.
+# Klik "Send Request" yang muncul di atas tiap permintaan.
+@baseUrl = http://localhost:3000
+
+### 1. GET semua outfit
+GET {{baseUrl}}/outfit
+
+### 2. GET satu outfit
+GET {{baseUrl}}/outfit/1
+
+### 3. POST outfit baru (valid)
+POST {{baseUrl}}/outfit
+Content-Type: application/json
+
+{
+  "nama": "Campus Layering",
+  "vibe": "Kasual",
+  "kategori": "Atasan & Bawahan",
+  "cutting": "Regular",
+  "tier": "Casual",
+  "targetBeli": "2026-12-31",
+  "items": [
+    { "nama": "Kemeja flanel kotak", "platform": "Shopee" },
+    { "nama": "Celana jeans lurus", "platform": "Tokopedia" }
+  ]
+}
+
+### 4. POST tidak valid (400: validasi gagal)
+POST {{baseUrl}}/outfit
+Content-Type: application/json
+
+{
+  "nama": "Hi",
+  "vibe": "Santai",
+  "kategori": "Dress",
+  "cutting": "Regular",
+  "tier": "Casual",
+  "items": []
+}
+
+### 5. POST nama kembar (409: Conflict)
+POST {{baseUrl}}/outfit
+Content-Type: application/json
+
+{
+  "nama": "Urban Monochrome",
+  "vibe": "Streetwear",
+  "kategori": "Atasan & Bawahan",
+  "cutting": "Oversized",
+  "tier": "Casual",
+  "items": [ { "nama": "Hoodie hitam", "platform": "Shopee" } ]
+}
+
+### 6. PATCH ubah sebagian data
+PATCH {{baseUrl}}/outfit/2
+Content-Type: application/json
+
+{
+  "tier": "Casual",
+  "targetBeli": "2027-01-10"
+}
+
+### 7. PATCH id tidak ada (404: Not Found)
+PATCH {{baseUrl}}/outfit/999
+Content-Type: application/json
+
+{ "tier": "Higher" }
+
+### 8. DELETE hapus outfit
+DELETE {{baseUrl}}/outfit/3
+
+### 9. DELETE id tidak ada (404: Not Found)
+DELETE {{baseUrl}}/outfit/999
