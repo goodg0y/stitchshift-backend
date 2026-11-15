@@ -28,4 +28,9 @@ npm run start:dev
 Server berjalan di http://localhost:3000. Pengujian: buka `api.http` dengan ekstensi REST Client.
 
 ## Screenshot
-Tempel di `docs/screenshots/`.
+<img width="910" height="297" alt="Screenshot 2026-11-16 002942" src="https://github.com/user-attachments/assets/438debe5-6435-4dc6-856c-df92c290b084" />
+<img width="345" height="335" alt="Screenshot 2026-11-16 003018" src="https://github.com/user-attachments/assets/6af82f15-1b6b-4981-a7be-98b97c91c42f" />
+<img width="591" height="769" alt="Screenshot 2026-11-16 003115" src="https://github.com/user-attachments/assets/d70a9104-8110-4725-a345-a7576afb5c46" />
+
+
+
